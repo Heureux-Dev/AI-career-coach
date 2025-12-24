@@ -46,7 +46,6 @@ export const generateIndustryInsights = inngest.createFunction(
 
       const text = res.response.candidates[0].content.parts[0].text || "";
       const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
-
       const insights = JSON.parse(cleanedText);
 
       await step.run(`Update ${industry} insights`, async () => {
